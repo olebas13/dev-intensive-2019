@@ -3,10 +3,7 @@ package ru.skillbranch.devintensive
 import org.junit.Test
 
 import org.junit.Assert.*
-import ru.skillbranch.devintensive.extensions.TimeUnits
-import ru.skillbranch.devintensive.extensions.add
-import ru.skillbranch.devintensive.extensions.format
-import ru.skillbranch.devintensive.extensions.toUserView
+import ru.skillbranch.devintensive.extensions.*
 import ru.skillbranch.devintensive.models.*
 import java.util.*
 
@@ -57,15 +54,15 @@ class ExampleUnitTest {
         """.trimIndent())
     }
 
-//    @Test
-//    fun test_data_mapping() {
-//        val user = User.makeUser("Олег Невойт")
-//        println(user)
-//
-//        val userView = user.toUserView()
-//
-//        userView.printMe()
-//    }
+    @Test
+    fun test_data_mapping() {
+        val user = User.makeUser("Олег Невойт")
+        println(user)
+
+        val userView = user.toUserView()
+
+        userView.printMe()
+    }
 
     @Test
     fun test_abstract_factory() {
@@ -75,5 +72,17 @@ class ExampleUnitTest {
 
         println(textMessage.formatMessage())
         println(imgMessage.formatMessage())
+    }
+
+    @Test
+    fun test_truncate() {
+        val text = "Сгибальщик Сгибающий Родригес"
+        println(text.truncate(10))
+    }
+
+    @Test
+    fun test_stripHtml() {
+        val text = "<p class=\"title\">Образовательное          IT-сообщество Skill Branch</p>"
+        println(text.stripHtml())
     }
 }
